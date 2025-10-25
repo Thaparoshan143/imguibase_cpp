@@ -1,4 +1,6 @@
 # *Note* This make file is from original example of glfw of imgui
+# *This make file is configed to be use this folder as submodule, i.e entry point doesn't exists.. 
+# **MUST READ** Please use command from Readme.md (bash script) to use the pre-compiled object and link them correctly..
 #
 # Cross Platform Makefile
 # Compatible with MSYS2/MINGW, Ubuntu 14.04.1 and Mac OS X
@@ -19,7 +21,7 @@ CPP_VERSION = 17
 EXE = app
 IMGUI_DIR = ./
 OBJ_DIR = ./obj/
-SOURCES = main.cpp
+# SOURCES = main.cpp # since this is used in submodule only the .o for other are created..
 SOURCES += $(IMGUI_DIR)/imgui.cpp $(IMGUI_DIR)/imgui_demo.cpp $(IMGUI_DIR)/imgui_draw.cpp $(IMGUI_DIR)/imgui_tables.cpp $(IMGUI_DIR)/imgui_widgets.cpp
 SOURCES += $(IMGUI_DIR)/backends/imgui_impl_glfw.cpp $(IMGUI_DIR)/backends/imgui_impl_opengl3.cpp
 OBJS = $(addprefix ${OBJ_DIR}, $(addsuffix .o, $(basename $(notdir $(SOURCES)))))
@@ -90,14 +92,9 @@ ${OBJ_DIR}%.o:$(IMGUI_DIR)/%.cpp
 ${OBJ_DIR}%.o:$(IMGUI_DIR)/backends/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-all: $(EXE) 
-	@echo Build complete for $(ECHO_MESSAGE)
-
-$(EXE): $(OBJS)
-	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
-
-obj: ${OBJS}
-	@echo Object Build Successful $(ECHO_MESSAGE)
+# all rule is modified to only build objects
+all: ${OBJS}
+	@echo object only build successful $(ECHO_MESSAGE)
 
 
 clean:
