@@ -47,3 +47,9 @@ cmake-build-*
 
 # binary/application
 app
+
+# premake other files ignore
+bin/**
+obj/**
+*.make
+Makefile
