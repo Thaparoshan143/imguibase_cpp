@@ -17,21 +17,20 @@ brew install premake glfw
 premake5 --version && brew list | grep glfw
 ```
 
-#for windows user, configure the path for library of glfw in premake
-either use configurations function
-
-``` lua
-    configurations { "windows" }
-        libdirs { "default/path/to/lib", "other/lib/search/path" }
-        links { "glfw", "opengl.framework" } -- might be different.. 
-```
-
-or using filter function
-
-``` lua
-    filter "system:windows"
-        -- same as above.. libdirs, and links
-```
+> [!Note]
+> for windows user, configure the path for library of glfw in premake\
+> **either use configurations function**
+> ``` lua
+>     configurations { "windows" }
+>         libdirs { "default/path/to/lib", "other/lib/search/path" }
+>         links { "glfw", "opengl.framework" } -- might be different.. 
+> ```
+> **or using filter function**
+> 
+> ``` lua
+>     filter "system:windows"
+>         -- same as above.. libdirs, and links
+> ```
 
 3. If bash script exists (i.e buildrun.sh)
 
@@ -39,7 +38,8 @@ or using filter function
 bash buildrun.sh # wrapper to run build system and execute the app..
 ```
 
-**Note:** If custom flag or option based required use premake5 manually to do so:
+> [!Note]
+> If custom flag or option based required use premake5 manually to do so:
 ```bash
 premake target # target is gmake, vs2013, ..
 # make file will be generated now, build from make
@@ -49,7 +49,7 @@ make flags/args # send the args/flags for make, eg: config=release/debug..
 
 <hr />
 
-For any help on configuration/flag/arguments use
+**For any help on configuration/flag/arguments use**
 - for premake
 ```
 premake5 --help
