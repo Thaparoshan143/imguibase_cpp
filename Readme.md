@@ -4,14 +4,18 @@ The entry point is intentionaly missing in this repo (i.e main function). Repo i
 
 **Must have**
 1. GLFW
-> brew install glfw
+```bash
+brew install glfw
+```
 
 <hr />
 
 **How to use:**
 - Make this submodule of your project as:
-> git submodule add -b mac-submodule https://github.com/Thaparoshan143/imguibase_cpp /folder/to/submodule
-- At the root folder (where main.cpp contains) copy shell command below
+```bash
+git submodule add -b mac-submodule https://github.com/Thaparoshan143/imguibase_cpp /folder/to/submodule
+```
+- At the root folder (where **main.cpp** contains) copy shell command below
 - Modify the fields of script based on requirement and finally run with bash
 
 
